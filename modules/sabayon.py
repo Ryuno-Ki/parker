@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 """
-search.py - Phenny Web Search Module
+sabayon.py - Phenny Web Search Module for Sabayon's Pastebin
 Copyright 2008-9, Sean B. Palmer, inamidst.com
 
-Copied and changed to sabayon.py - Phenny Web Search for Sabayon.org Pastebin
-2013 by Andre Jaenisch
+Copied and changed search.py to sabayon.py
+Modified by Andre Jaenisch on 2013
 Licensed under the Eiffel Forum License 2.
 
 http://inamidst.com/phenny/
