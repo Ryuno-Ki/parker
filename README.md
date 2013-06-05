@@ -1,8 +1,7 @@
 # ParkerBeta
 
 Sabayon's IRC bot, ParkerBeta, is a [phenny][bot] bot.
-[This project][this] is forked from [Sabayon][ParkerBeta], which forked it
-from [sbp][origin].
+[This project][this] is forked from [Sabayon][ParkerBeta], which forked it from [sbp][origin] (note that there is a [rework in progress][saxo]. Thanks for the hint, sbp!)
 
 I added some distro related stuff for easier lookup on IRC.
 
@@ -19,6 +18,7 @@ Enjoy!
 Sean B. Palmer, http://inamidst.com/sbp/
 
 [bot]:        http://inamidst.com/phenny/
+[saxo]:       https://github.com/sbp/saxo
 [this]:       https://github.com/Ryuno-Ki/parker
 [ParkerBeta]: https://github.com/Sabayon/parker
 [origin]:     https://github.com/sbp/phenny
