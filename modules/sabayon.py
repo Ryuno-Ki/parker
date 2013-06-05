@@ -13,16 +13,17 @@ http://inamidst.com/phenny/
 import urllib
 import json
 from bs4 import BeautifulSoup
+import web
 
 
-class Grab(urllib.URLopener):
+class Grab(web.urllib.URLopener):
     def __init__(self, *args):
         self.version = 'Mozilla/5.0 (Phenny)'
-        urllib.URLopener.__init__(self, *args)
+        web.urllib.URLopener.__init__(self, *args)
         self.addheader('Referer', 'https://github.com/sbp/phenny')
 
     def http_error_default(self, url, fp, errcode, errmsg, headers):
-        return urllib.addinfourl(fp, [headers, errcode], "http:" + url)
+        return web.urllib.addinfourl(fp, [headers, errcode], "http:" + url)
 
 
 def pastie(number):
@@ -31,9 +32,10 @@ def pastie(number):
     if isinstance(number, unicode):
         number = number.encode('utf-8')
     uri = 'http://pastebin.sabayon.org/pastie/'
-    arg = urllib.quote(number)
-    handler = urllib._urlopener
-    urllib._urlopener = Grab()
+    arg = web.urllib.quote(number)
+    handler = web.urllib._urlopener
+    web.urllib._urlopener = Grab()
+
     soup = BeautifulSoup(urllib.urlopen(uri + arg))
     lis = soup.find_all('li', 'latest-pastie-item')
     for li in lis:
@@ -43,8 +45,12 @@ def pastie(number):
     author = wanted.b.string
     subject = wanted.i.string
     time = wanted.i.next_sibling.next_sibling.next_sibling.strip()
-    urllib._urlopener = handler
+
+    web.urllib._urlopener = handler
     return json.dumps({'author': author,
                        'subject': subject,
                        'time': time,
                        'url': uri + arg})
+
+if __name__ == '__main__':
+    print __doc__.strip()
